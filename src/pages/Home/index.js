@@ -27,8 +27,8 @@ function Home() {
         <div>
             <Header />
             <Main />
-            <div className="card-row">
-                {isLoaded ? productsRow : Array(12).fill(<MyLoader/>) }
+            <div className="card-row" >
+                {isLoaded ? productsRow : Array(12).fill(0).map((_, index)  => <MyLoader key={index} />) }
             </div>
             <Footer />
             

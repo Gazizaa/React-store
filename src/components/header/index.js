@@ -25,7 +25,7 @@ function Header() {
                 <nav>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
-                        <li>About</li>
+                        <li><Link to='/about'>About</Link></li>
                         <li onClick={() => setMenu(!menu)} className='subMenuClick' ref={subMenuRef}>Category</li>
                            { menu && <div className='submenu'>
                                 <ul>
