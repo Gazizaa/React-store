@@ -1,0 +1,6 @@
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
+export const GET_CATEGORIES = 'GET_CATEGORIES'
+export const GET_ERRORS = 'GET_ERRORS'
+export const GET_BASKET = 'GET_BASKET'
+ 
