@@ -1,39 +1,35 @@
-import React  from 'react'
+import React, { useState, useEffect }  from 'react'
+import { useDispatch } from 'react-redux';
+import { changeAmount, deleteBasket } from '../../store/actions/basketAction';
 import './index.css'
-import { withRouter } from 'react-router-dom'
-import { deleteBasket, getBasket } from '../../store/actions/basketAction'
-import { connect } from 'react-redux'
 
 function BasketItem(props) {
-    const {basket} = props.basketReducer
+    const dispatch = useDispatch();
+    const [totalCount, setTotalCount] = useState(0);
 
-    let deleteItems = (id) => {
-        basket?.map(item => {
-            if(item.productID === id){
-               props.deleteBasket(item.id) 
-               props.getBasket()
-            }
-             
-        })
-       
-    }
+    useEffect(() => {
+        let price = 0;
+        props.basketData.map(item => {
+            price += item.amount * item.price
+        });
+        setTotalCount(price)
+    }, [props.basketData, totalCount])
+    
+    const deleteItems = (productId) => {
+        dispatch(deleteBasket(productId))
+    } 
 
     let basketRows = props.basketData.map(item => (
     <tr>
-        <td><button id='delete-btn' onClick={() => deleteItems(item.id)}>x</button></td>
+        <td><button id='delete-btn' onClick={() => deleteItems(item.productId)}>x</button></td>
         <td><img src={item.image} alt='item-image'/></td>
         <td>{item.name}</td>
         <td>${item.price}</td>
-        <td><input type='number' className='quantity-input' value={item.amount}></input></td>
+        <td><input min='1' type='number' className='quantity-input' value={item.amount} ></input></td>
         <td>${item.price * item.amount}</td>
     </tr>
     ))
  
-    let sumList = []
-    props.basketData.map(item => {
-        sumList.push(item.price * item.amount)
-    })
-    let totalSum = sumList.reduce((sum, current) => sum + current, 0)
 
     return(
         <div className="basket-item">
@@ -65,11 +61,11 @@ function BasketItem(props) {
                     <thead>
                         <tr>
                             <th>Subtotal</th>
-                            <td>${totalSum}</td>
+                            <td>${totalCount}</td>
                         </tr>
                         <tr>
                             <th>Total</th>
-                            <td>${totalSum + 50}</td>
+                            <td>${totalCount}</td>
                         </tr>
                     </thead>
                 </table>
@@ -79,9 +75,5 @@ function BasketItem(props) {
     )
 }
 
-const mapStateToProps=(state)=> ({
-    basketReducer: state.basketReducer,
 
-})
-
-export default connect(mapStateToProps, {deleteBasket, getBasket}) (withRouter (BasketItem))
+export default BasketItem

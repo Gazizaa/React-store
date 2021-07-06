@@ -5,9 +5,9 @@ import basketReducer from './basketReducer'
 
 
 const rootReducer = combineReducers({
-    productReducer: productReducer,
-    categoriesReducer: categoriesReducer,
-    basketReducer: basketReducer
+    productReducer,
+    categoriesReducer,
+    basketReducer
 })
 
 export default rootReducer

@@ -31,14 +31,15 @@ function ProductDetails(props) {
         <Link to='/basket'><button>View cart</button></Link>
     </div>                
 
-
     let addItem = () => {
-        let data = {
-            amount: amountInput,
-            productID: props.match.params.id
-        }
-        props.addToBasket(data)
-        setShowViewCard(true)
+            props.addToBasket({
+            productId: productDetails.id,
+            name: productDetails.name,
+            image: productDetails.image,
+            price: productDetails.price,
+            amount: amountInput 
+        }); 
+        setShowViewCard(true); 
     }  
 
     return(
@@ -56,7 +57,7 @@ function ProductDetails(props) {
                     <p className='price-p'>${productDetails.price}</p>
                     <p>{productDetails.description}</p>
                     <div className='add-cart'>
-                        <input type='number' name='amountInput' onChange={(e) => setAmountInput(e.target.value)} value={amountInput}></input>
+                        <input type='number' name='amountInput' onChange={(e) => setAmountInput(e.target.value)} value={amountInput} min='1'></input>
                         <button onClick={() => addItem()}>ADD TO CART</button>
                     </div>
                     <p>SKU: MG Categories: All Products, Modern, Sale</p>

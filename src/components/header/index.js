@@ -10,7 +10,8 @@ function Header() {
     const subMenuRef = useRef();
    
     const handleClick = (e) => {
-        if(!e.path.includes(subMenuRef.current)) {
+        const path = e.path || (e.composedPath && e.composedPath());
+        if(!path.includes(subMenuRef.current)) {
             setMenu(false)
         }
     }
