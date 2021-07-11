@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../../components/header";
-import Footer from "../../components/footer"
-import { getProductDetails} from '../../store/actions/productActions'
-import './index.css'
-import {addToBasket} from '../../store/actions/basketAction'
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Link, withRouter } from 'react-router-dom';
 
+import './index.css'
+import Header from "../../components/header";
+import Footer from "../../components/footer"
+import { getProductDetails} from '../../store/actions/productActions'
+import {addToBasket} from '../../store/actions/basketAction'
 
 function ProductDetails(props) {
 

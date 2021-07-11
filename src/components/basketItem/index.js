@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react'
+import React  from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeAmount, clearCart, deleteBasket } from '../../store/actions/basketAction';
 import './index.css'
@@ -24,7 +24,6 @@ function BasketItem(props) {
         if(window.confirm("Do you really want to clear cart?")){
            dispatch(clearCart()) 
         }
-        
     }
 
     let basketRows = props.basketData.map(item => (
