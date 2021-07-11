@@ -1,4 +1,4 @@
-import {ADD_TO_BASKET, GET_ERRORS, DELETE_BASKET, CHANGE_AMOUNT} from './types'
+import {ADD_TO_BASKET, GET_ERRORS, DELETE_BASKET, CHANGE_AMOUNT, CLEAR_CART} from './types'
 import axios from 'axios'
 
 export const addToBasket = (data) => dispatch => {
@@ -27,14 +27,22 @@ export const changeAmount = (id, value) => {
     }
 }
 
-export const deleteBasket = (productId) => {
+export const deleteBasket = (productId, amount, price) => {
     return {
         type: DELETE_BASKET,
         payload: {
-            id: productId
+            id: productId, 
+            amount,
+            price
         }
     }
 }
+
+export const clearCart = () => {
+    return {
+        type: CLEAR_CART
+    }
+} 
 
 /* export const getBasket = () => dispatch => {
     axios.get('http://localhost:3000/basket').then(

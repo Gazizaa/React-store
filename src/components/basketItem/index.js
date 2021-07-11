@@ -1,11 +1,12 @@
 import React, { useState, useEffect }  from 'react'
-import { useDispatch } from 'react-redux';
-import { changeAmount, deleteBasket } from '../../store/actions/basketAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeAmount, clearCart, deleteBasket } from '../../store/actions/basketAction';
 import './index.css'
 
 function BasketItem(props) {
     const dispatch = useDispatch();
-    const [totalCount, setTotalCount] = useState(0);
+    const totalPrice = useSelector(({basketReducer}) => basketReducer.totalPrice);
+   /*  const [totalCount, setTotalCount] = useState(0);
 
     useEffect(() => {
         let price = 0;
@@ -13,15 +14,22 @@ function BasketItem(props) {
             price += item.amount * item.price
         });
         setTotalCount(price)
-    }, [props.basketData, totalCount])
+    }, [props.basketData, totalCount]) */
     
-    const deleteItems = (productId) => {
-        dispatch(deleteBasket(productId))
+    const deleteItems = (productId, amount, price) => {
+        dispatch(deleteBasket(productId, amount, price))
     } 
+
+    const onClickClearCart = () => {
+        if(window.confirm("Do you really want to clear cart?")){
+           dispatch(clearCart()) 
+        }
+        
+    }
 
     let basketRows = props.basketData.map(item => (
     <tr>
-        <td><button id='delete-btn' onClick={() => deleteItems(item.productId)}>x</button></td>
+        <td><button id='delete-btn' onClick={() => deleteItems(item.productId, item.amount, item.price)}>x</button></td>
         <td><img src={item.image} alt='item-image'/></td>
         <td>{item.name}</td>
         <td>${item.price}</td>
@@ -48,9 +56,7 @@ function BasketItem(props) {
                    {basketRows}
                     <tr>
                         <td colSpan='6'>
-                            <input placeholder='Coupon code' className='coupon-input'></input>
-                            <button>APPLY COUPON</button>
-                            <button id='disabled-btn'>UPDATE CART</button>
+                            <button id='cart-btn' onClick={onClickClearCart}>CLEAR CART</button>
                         </td>
                     </tr>
                 </tbody>
@@ -61,11 +67,11 @@ function BasketItem(props) {
                     <thead>
                         <tr>
                             <th>Subtotal</th>
-                            <td>${totalCount}</td>
+                            <td>${totalPrice}</td>
                         </tr>
                         <tr>
                             <th>Total</th>
-                            <td>${totalCount}</td>
+                            <td>${totalPrice}</td>
                         </tr>
                     </thead>
                 </table>

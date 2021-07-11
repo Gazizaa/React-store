@@ -19,7 +19,6 @@ function ProductDetails(props) {
 
     useEffect(() => {  
        props.getProductDetails(props.match.params.id)
-       // eslint-disable-next-line 
     }, []);    
     
     const fullImg = <div className='full-img' onClick={() => setShowFullImg(false)}>

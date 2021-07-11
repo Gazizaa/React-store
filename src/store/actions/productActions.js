@@ -2,7 +2,7 @@ import {GET_PRODUCTS, GET_ERRORS, GET_PRODUCT_DETAILS} from './types'
 import axios from 'axios'
 
 export const getProducts = () => dispatch => {
-    axios.get('http://localhost:3000/products').then(
+    axios.get('/products').then(
         response => {
             return dispatch ({
                 type: GET_PRODUCTS,
@@ -18,7 +18,7 @@ export const getProducts = () => dispatch => {
 }
 
 export const getProductDetails = (id) => dispatch => {
-    axios.get('http://localhost:3000/products/'+id).then(
+    axios.get('/products/'+id).then(
         response => {
             return dispatch ({
                 type: GET_PRODUCT_DETAILS,

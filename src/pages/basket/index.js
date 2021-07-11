@@ -5,8 +5,6 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import BasketItem from '../../components/basketItem'
 
-
-
 function Basket() {
     const basketReducer = useSelector(({basketReducer}) => basketReducer.basket)
 

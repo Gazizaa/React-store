@@ -1,19 +1,19 @@
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
-import {ADD_TO_BASKET, DELETE_BASKET, CHANGE_AMOUNT} from '../actions/types'
+import {ADD_TO_BASKET, DELETE_BASKET, CHANGE_AMOUNT, CLEAR_CART} from '../actions/types'
 
 const initialState = {
     basket:[],
     totalPrice: 0,
     currentItem: null
 }
-// eslint-disable-next-line 
-const basketReducer = (state=initialState, action) => {
 
-    let inCart = state.basket.find((item)=> 
-    item.productId === action.payload.productId ? true : false);
+const basketReducer = (state=initialState, action) => {
 
     switch(action.type){
         case ADD_TO_BASKET:
+
+        let inCart = state.basket.find((item)=> 
+        item.productId === action.payload.productId ? true : false);
+
             return{
                 ...state,
                 basket: inCart 
@@ -21,23 +21,30 @@ const basketReducer = (state=initialState, action) => {
                     ? {...item, amount: +item.amount + +action.payload.amount} 
                     :  item
                     )
-                :  [...state.basket, action.payload]
+                :  [...state.basket, action.payload],
+                totalPrice: state.totalPrice + (+action.payload.amount * action.payload.price)
             }
         case CHANGE_AMOUNT: 
-        return {
-            ...state,
-            basket: state.basket.map(item => item.productId === action.payload.productId 
-                ? {...item, amount: action.payload.amount}
-                : item)
-        }    
+            return {
+                ...state,
+                basket: state.basket.map(item => item.productId === action.payload.productId 
+                    ? {...item, amount: action.payload.amount}
+                    : item)
+            }    
         case DELETE_BASKET:
             return {
                 ...state,
-                basket: state.basket.filter(item => item.productId !== action.payload.id)
-            }    
+                basket: state.basket.filter(item => item.productId !== action.payload.id),
+                totalPrice: state.totalPrice - (+action.payload.amount * action.payload.price)
+            } 
+        case CLEAR_CART: 
+            return { 
+                ...state,
+                basket: [], 
+                totalPrice: 0 
+            }       
         default:
             return state    
-
     }
 }
 
