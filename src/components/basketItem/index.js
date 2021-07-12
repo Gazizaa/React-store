@@ -1,21 +1,14 @@
 import React  from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+
 import { clearCart, deleteBasket } from '../../store/actions/basketAction';
 import BasketRow from './BasketRow';
-import './index.css'
+import './index.css';
 
 function BasketItem(props) {
+
     const dispatch = useDispatch();
     const totalPrice = useSelector(({basketReducer}) => basketReducer.totalPrice);
-   /*  const [totalCount, setTotalCount] = useState(0);
-
-    useEffect(() => {
-        let price = 0;
-        props.basketData.map(item => {
-            price += item.amount * item.price
-        });
-        setTotalCount(price)
-    }, [props.basketData, totalCount]) */
     
     const deleteItems = (productId, amount, price) => {
         dispatch(deleteBasket(productId, amount, price))

@@ -19,4 +19,6 @@ const store = createStore(rootReducer, initialState, composeEnhancers(
     applyMiddleware(...middleware)
   ));
 
+window.store = store;
+  
 export default store;

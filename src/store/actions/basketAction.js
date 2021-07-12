@@ -1,20 +1,11 @@
-import {ADD_TO_BASKET, GET_ERRORS, DELETE_BASKET, INCREASE_COUNT, DECREASE_COUNT, CLEAR_CART} from './types'
-import axios from 'axios'
+import {ADD_TO_BASKET, DELETE_BASKET, INCREASE_COUNT, DECREASE_COUNT, CLEAR_CART} from './types'
 
-export const addToBasket = (data) => dispatch => {
-    axios.post('http://localhost:3000/basket', data).then(
-        response => {
-            return dispatch ({
-                type: ADD_TO_BASKET,
-                payload: response.data
-            })
-        }
-    ).catch(err => {
-        return dispatch({
-            type: GET_ERRORS,
-            payload: err.response
-        })
-    })
+
+export const addToBasket = (data) => {
+    return {
+        type: ADD_TO_BASKET,
+        payload: data
+    }
 }
 
 export const increase = (productId, amount, price) => {

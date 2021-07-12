@@ -13,7 +13,7 @@ const BasketRow = (props) => {
     }
 
     const decreaseCount = () => {
-         setInputCount(inputCount > 0 && inputCount - 1);
+         setInputCount(inputCount > 0 ? inputCount - 1 : null);
         dispatch(decrease(props.item.productId, 1, props.item.price))
     }
     return (
@@ -27,8 +27,7 @@ const BasketRow = (props) => {
                 <td>${props.item.price}</td>
                 <td className='td-input'>
                     <button onClick={decreaseCount}>-</button>
-                    <input 
-                        min="1" 
+                    <input  
                         disabled='disabled'
                         type='number' 
                         className='quantity-input' 
