@@ -4,7 +4,8 @@ export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_ERRORS = 'GET_ERRORS'
 export const ADD_TO_BASKET = 'ADD_TO_BASKET'
 export const DELETE_BASKET = 'DELETE_BASKET'
-export const CHANGE_AMOUNT = 'CHANGE_AMOUNT'
+export const INCREASE_COUNT = 'INCREASE_COUNT'
+export const DECREASE_COUNT = 'DECREASE_COUNT'
 export const CLEAR_CART = 'CLEAR_CART'
 
  

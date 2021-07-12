@@ -20,6 +20,13 @@
 .quantity-input {
   width: 40px;
   outline: none;
+  margin: 10px;
+  all: unset;
+  width: 50px;
+  text-align: center;
+}
+.quantity-input::-webkit-inner-spin-button {
+  display: none;
 }
 .coupon-input {
   width: 100px;
@@ -70,7 +77,11 @@
 .total-cart h1 {
   text-align: left;
 }
-
+.td-input button {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+}
 @media (max-width: 900px) {
   .basket-item {
     overflow-x: auto;

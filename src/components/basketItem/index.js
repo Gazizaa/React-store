@@ -1,6 +1,7 @@
 import React  from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAmount, clearCart, deleteBasket } from '../../store/actions/basketAction';
+import { clearCart, deleteBasket } from '../../store/actions/basketAction';
+import BasketRow from './BasketRow';
 import './index.css'
 
 function BasketItem(props) {
@@ -26,18 +27,8 @@ function BasketItem(props) {
         }
     }
 
-    let basketRows = props.basketData.map(item => (
-    <tr>
-        <td><button id='delete-btn' onClick={() => deleteItems(item.productId, item.amount, item.price)}>x</button></td>
-        <td><img src={item.image} alt='item-image'/></td>
-        <td>{item.name}</td>
-        <td>${item.price}</td>
-        <td><input min='1' type='number' className='quantity-input' value={item.amount} ></input></td>
-        <td>${item.price * item.amount}</td>
-    </tr>
-    ))
+    let basketRows = props.basketData.map(item => <BasketRow key={item.id} item={item} deleteItems={deleteItems}/> )
  
-
     return(
         <div className="basket-item">
             <table>

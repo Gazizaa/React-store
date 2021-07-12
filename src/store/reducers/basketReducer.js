@@ -1,4 +1,4 @@
-import {ADD_TO_BASKET, DELETE_BASKET, CHANGE_AMOUNT, CLEAR_CART} from '../actions/types'
+import {ADD_TO_BASKET, DELETE_BASKET, INCREASE_COUNT, DECREASE_COUNT, CLEAR_CART} from '../actions/types'
 
 const initialState = {
     basket:[],
@@ -24,13 +24,22 @@ const basketReducer = (state=initialState, action) => {
                 :  [...state.basket, action.payload],
                 totalPrice: state.totalPrice + (+action.payload.amount * action.payload.price)
             }
-        case CHANGE_AMOUNT: 
+        case INCREASE_COUNT: 
             return {
                 ...state,
                 basket: state.basket.map(item => item.productId === action.payload.productId 
-                    ? {...item, amount: action.payload.amount}
-                    : item)
-            }    
+                    ? {...item, amount: +item.amount + action.payload.amount}
+                    : item),
+                totalPrice: state.totalPrice + (+action.payload.amount * action.payload.price)    
+            }   
+        case DECREASE_COUNT: 
+            return {
+                ...state,
+                basket: state.basket.map(item => item.productId === action.payload.productId 
+                    ? {...item, amount: +item.amount - action.payload.amount}
+                    : item),
+                totalPrice: state.totalPrice - (+action.payload.amount * action.payload.price)    
+            }      
         case DELETE_BASKET:
             return {
                 ...state,

@@ -1,4 +1,4 @@
-import {ADD_TO_BASKET, GET_ERRORS, DELETE_BASKET, CHANGE_AMOUNT, CLEAR_CART} from './types'
+import {ADD_TO_BASKET, GET_ERRORS, DELETE_BASKET, INCREASE_COUNT, DECREASE_COUNT, CLEAR_CART} from './types'
 import axios from 'axios'
 
 export const addToBasket = (data) => dispatch => {
@@ -17,12 +17,24 @@ export const addToBasket = (data) => dispatch => {
     })
 }
 
-export const changeAmount = (id, value) => {
+export const increase = (productId, amount, price) => {
     return {
-        type: CHANGE_AMOUNT,
+        type: INCREASE_COUNT,
         payload: {
-            id: id,
-            amount: value
+            productId,
+            amount,
+            price
+        }
+    }
+}
+
+export const decrease = (productId, amount, price) => {
+    return {
+        type: DECREASE_COUNT,
+        payload: {
+            productId,
+            amount,
+            price
         }
     }
 }
@@ -43,16 +55,3 @@ export const clearCart = () => {
         type: CLEAR_CART
     }
 } 
-
-/* export const getBasket = () => dispatch => {
-    axios.get('http://localhost:3000/basket').then(
-        response => {
-           console.log(response)
-        }
-    ).catch(err => {
-        return dispatch({
-            type: GET_ERRORS,
-            payload: err.response
-        })
-    })
-} */
