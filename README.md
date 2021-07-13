@@ -14,4 +14,5 @@ Stack:
 - SASS
 
 
-![1](https://user-images.githubusercontent.com/82547298/125361746-312c2980-e387-11eb-979b-f60d4308f5a5.png)
+![1](https://user-images.githubusercontent.com/82547298/125531164-51b3a78a-47c3-4bd8-bf6f-60d231f7baff.png)
+
