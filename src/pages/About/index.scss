@@ -6,15 +6,16 @@
   flex-wrap: wrap;
   width: 71%;
   margin: auto;
-}
-.about_div p {
-  margin: 20px auto;
-}
-.about_div h1 {
-  margin: 30px auto;
-  font-weight: bold;
-  font-size: 20px;
-}
-.about_div img {
-  max-width: 100%;
+
+  p {
+    margin: 20px auto;
+  }
+  h1 {
+    margin: 30px auto;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  img {
+    max-width: 100%;
+  }
 }

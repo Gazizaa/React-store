@@ -1,5 +1,5 @@
 import React  from 'react'
-import './index.css'
+import './index.scss'
 import {Link, withRouter} from 'react-router-dom'
 
 function Card(props) {

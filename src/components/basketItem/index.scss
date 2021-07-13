@@ -1,0 +1,90 @@
+.basket-item {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    img {
+      width: 40px;
+    }
+  }
+  td {
+    border: 1px solid #999;
+    padding: 0.7rem;
+    text-align: left;
+    vertical-align: middle;
+    letter-spacing: 2px;
+    font-size: 15px;
+  }
+  th {
+    @extend td;
+    font-weight: 700;
+  }
+  button {
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+.quantity-input {
+  width: 40px;
+  outline: none;
+  margin: 10px;
+  all: unset;
+  width: 50px;
+  text-align: center;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+#cart-btn {
+  float: right;
+  cursor: pointer;
+}
+#delete-btn {
+  color: red;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 17px;
+
+  &:hover {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    height: 25px;
+    opacity: unset;
+  }
+}
+.total-cart {
+  width: 40%;
+  margin: 50px 60%;
+  h1 {
+    text-align: left;
+  }
+  button {
+    width: 100%;
+    margin-top: 20px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+.td-input {
+  button {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+  }
+}
+@media (max-width: 900px) {
+  .basket-item {
+    overflow-x: auto;
+  }
+}

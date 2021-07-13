@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { increase, decrease } from '../../store/actions/basketAction';
+import './index.scss';
 
 const BasketRow = (props) => {
 

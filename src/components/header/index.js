@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import {getCategories} from '../../store/actions/categoryActions'
 import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom'
-import './index.css'
+import './index.scss'
 
 
 function Header() {

@@ -4,7 +4,7 @@ import Main from "../../components/main"
 import Card from "../../components/card"
 import Footer from "../../components/footer"
 import { getProducts } from '../../store/actions/productActions'
-import './index.css'
+import './index.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import MyLoader from '../../components/loader';
 

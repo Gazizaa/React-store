@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import './index.css'
+import './index.scss'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import BasketItem from '../../components/basketItem'

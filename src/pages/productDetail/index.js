@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-import './index.css'
+import './index.scss'
 import Header from "../../components/header";
 import Footer from "../../components/footer"
 import { getProductDetails} from '../../store/actions/productActions'

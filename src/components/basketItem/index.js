@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { clearCart, deleteBasket } from '../../store/actions/basketAction';
 import BasketRow from './BasketRow';
-import './index.css';
+import './index.scss';
 
 function BasketItem(props) {
 
