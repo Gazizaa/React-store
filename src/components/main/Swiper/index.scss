@@ -1,0 +1,10 @@
+.swiper-button-prev {
+  color: grey;
+  font-weight: bold;
+}
+.swiper-button-next {
+  @extend .swiper-button-prev;
+}
+.swiper-pagination-bullet {
+  display: none;
+}
