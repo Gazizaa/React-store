@@ -11,6 +11,7 @@ Stack:
 - Redux thunk
 - json-server
 - Axios
+- SASS
 
 
 ![1](https://user-images.githubusercontent.com/82547298/125361746-312c2980-e387-11eb-979b-f60d4308f5a5.png)
