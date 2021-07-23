@@ -36,7 +36,7 @@ function Header() {
                                     <li>Products</li>
                                 </ul>
                             </div> }
-                        <li>Blog</li>
+                        <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/basket'>Cart</Link></li>
                         <li>Checkout</li>
                         <li>My Account</li>
