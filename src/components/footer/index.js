@@ -23,7 +23,7 @@ function Footer() {
                 </div>
             </div>
             <div className="text-center">
-                <p>COPYRIGHTS 2020. POWERED BY WORDPRESS & WOOCOMMERCE</p>
+                <p>© 2021 All Rights Reserved. CREATED BY GAZIZA AGATAYEVA</p>
             </div>
         </div>
     )
