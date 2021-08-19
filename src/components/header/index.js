@@ -2,11 +2,16 @@ import React, {useState, useEffect, useRef} from 'react'
 import {getCategories} from '../../store/actions/categoryActions'
 import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'
 
+library.add(faBars, faTimes)
 
 function Header() {
     const [menu, setMenu] = useState(false);
+    const [btnVisible, setBtnVisible] = useState(false);
     const subMenuRef = useRef();
    
     const handleClick = (e) => {
@@ -16,6 +21,10 @@ function Header() {
         }
     }
 
+    const toggleNav = () => {
+        setBtnVisible(!btnVisible)
+    };
+
     useEffect(()=> {
          document.body.addEventListener('click', handleClick); 
     }, [])
@@ -23,7 +32,7 @@ function Header() {
     return (
         <div>
             <div className="header">
-                <nav>
+                <nav className={`${btnVisible && "showHeight"}`}>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/about'>About</Link></li>
@@ -43,6 +52,9 @@ function Header() {
                         <li>Contact</li>
                     </ul>
                 </nav>
+                 <button className='burger-btn' onClick={toggleNav}>
+                    <FontAwesomeIcon icon={ btnVisible ? ['fas', 'times'] : ['fas', 'bars'] } />
+                </button>
             </div>
             <div className="logo">
                 <Link to='/' ><img src='https://dessign.net/virtualstore/wp-content/themes/VirtualStoreWooResOrg/images/logo.png' alt='logo' /></Link>

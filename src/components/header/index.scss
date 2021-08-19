@@ -4,14 +4,13 @@
   align-items: center;
   margin: auto;
   padding-top: 20px;
-
   nav > ul {
     display: flex;
     width: 100%;
     justify-content: space-between;
-
     li {
       font-size: 14px;
+      letter-spacing: 2px;
       margin-right: 30px;
       cursor: pointer;
       &:after {
@@ -33,12 +32,16 @@
   }
 }
 .submenu {
-  position: absolute;
-  z-index: 10;
-  background-color: white;
-  margin: 30px;
-  left: 630px;
+  position: relative;
   ul {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 180px;
+    height: 150px;
+    margin: 30px 20px;
+    display: inline;
+    left: -140px;
     li {
       line-height: 15px;
       padding: 10px 35px 5px 10px;
@@ -48,4 +51,49 @@
 .logo {
   text-align: center;
   margin-top: 50px;
+}
+.burger-btn {
+  outline: none;
+  border: none;
+  font-size: 19px;
+  color: black;
+  font-weight: 700;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 900px) {
+  .burger-btn {
+    display: block !important;
+    position: absolute;
+    right: 50px;
+    top: 30px;
+  }
+  .header {
+    justify-content: flex-start;
+    margin-left: 20px;
+    nav {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+    }
+    nav > ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        padding: 7px;
+      }
+    }
+  }
+  .submenu {
+    ul {
+      position: initial;
+    }
+  }
+  .showHeight {
+    overflow: visible;
+    height: auto !important;
+    opacity: 1 !important ;
+    transition: opacity 0.5s ease-in-out;
+  }
 }

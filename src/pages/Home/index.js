@@ -31,7 +31,6 @@ function Home() {
                 {isLoaded ? productsRow : Array(12).fill(0).map((_, index)  => <MyLoader key={index} />) }
             </div>
             <Footer />
-            
         </div>
     )
 }
