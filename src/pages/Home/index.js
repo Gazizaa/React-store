@@ -18,7 +18,7 @@ function Home() {
         if (!products.length){
             dispatch(getProducts()); 
         } 
-    }, []);  
+    }, [products.length, dispatch]);  
 
     let productsRow = products?.map(item => (
         <Card product ={item} key={item.id}/>    

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -11,7 +11,6 @@ import { getProductDetails} from '../../store/actions/productActions'
 import {addToBasket} from '../../store/actions/basketAction'
 
 function ProductDetails(props) {
-
     const {productDetails} = props.productReducer;
     const [showFullImg, setShowFullImg] = useState(false);
     const [showViewCard, setShowViewCard] = useState(false);
@@ -51,7 +50,7 @@ function ProductDetails(props) {
                     <button className="search-btn" onClick={() => setShowFullImg(true)}><img src='https://dessign.net/shopper-woocommerce-theme/wp-content/themes/ShopperWooThemePremium3/images/search-icon.png' alt='search' /></button>
                     <img src={productDetails.image} alt='glass' />
                 </div>
-                <div className='product-item'>
+                <div className='product-item product-description'>
                     <h1>{productDetails.name}</h1>
                     <p className='price-p'>${productDetails.price}</p>
                     <p>{productDetails.description}</p>
@@ -79,4 +78,4 @@ const mapStateToProps=(state)=> ({
     productReducer: state.productReducer
 })
 
-export default connect(mapStateToProps, {getProductDetails, addToBasket}) (withRouter (ProductDetails))
+export default connect(mapStateToProps, {getProductDetails, addToBasket}) (ProductDetails)

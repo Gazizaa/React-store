@@ -33,7 +33,6 @@
   }
 }
 .quantity-input {
-  width: 40px;
   outline: none;
   margin: 10px;
   all: unset;
@@ -83,8 +82,17 @@
     border-radius: 15px;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .basket-item {
-    overflow-x: auto;
+    overflow-x: scroll;
+    .total-cart {
+      margin-left: 0;
+      width: 100%;
+    }
+    .quantity-input {
+      margin: 0px;
+      width: 35px;
+      /*  width: 50px; */
+    }
   }
 }

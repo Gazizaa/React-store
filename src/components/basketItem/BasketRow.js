@@ -23,7 +23,7 @@ const BasketRow = (props) => {
                 <td><button id='delete-btn' 
                     onClick={() => props.deleteItems(props.item.productId, props.item.amount, props.item.price)}>x</button>
                 </td>
-                <td><img src={props.item.image} alt='item-image'/></td>
+                <td><img src={props.item.image} alt='item'/></td>
                 <td>{props.item.name}</td>
                 <td>${props.item.price}</td>
                 <td className='td-input'>

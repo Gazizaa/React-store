@@ -7,7 +7,7 @@
 
 .product-item {
   width: 50%;
-
+  position: relative;
   img {
     width: 80%;
     padding-left: 50px;
@@ -58,9 +58,9 @@ p {
   border-radius: 50%;
   background-color: white;
   padding: 9px;
-  position: relative;
-  left: 86%;
-  top: -90%;
+  position: absolute;
+  left: 80%;
+  top: 3%;
   outline: none;
   cursor: pointer;
 
@@ -113,6 +113,78 @@ p {
 
     &:hover {
       background-color: rgba(34, 33, 33, 0.644);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-detail-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-description {
+    width: 80%;
+    .price-p,
+    h1 {
+      text-align: center;
+    }
+  }
+  .product-item {
+    img {
+      width: 90%;
+      padding-left: 0px;
+    }
+  }
+  .tabs {
+    width: 70%;
+    margin: auto;
+  }
+  .search-btn {
+    left: 79%;
+    img {
+      width: 80%;
+    }
+  }
+  .full-img {
+    img {
+      width: 50%;
+      margin-top: 15%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .search-btn {
+    left: 73%;
+  }
+  .product-item {
+    width: 90%;
+    img {
+      width: 85%;
+    }
+  }
+  .tabs {
+    width: 80%;
+  }
+  .full-img {
+    img {
+      width: 60%;
+      margin-top: 29%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .search-btn {
+    padding: 4px;
+    img {
+      width: 50%;
+    }
+  }
+  .full-img {
+    img {
+      width: 70%;
+      margin-top: 50%;
     }
   }
 }

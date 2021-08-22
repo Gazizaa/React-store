@@ -23,3 +23,13 @@
     width: 96%;
   }
 }
+@media (max-width: 1200px) {
+  .blog-row {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  .blog-text {
+    width: 80%;
+  }
+}

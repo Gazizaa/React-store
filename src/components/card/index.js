@@ -1,6 +1,6 @@
 import React  from 'react'
 import './index.scss'
-import {Link, withRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Card(props) {
     return(
@@ -12,4 +12,4 @@ function Card(props) {
     )
 }
 
-export default withRouter(Card)
+export default Card
