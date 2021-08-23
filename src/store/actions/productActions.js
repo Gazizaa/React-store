@@ -10,9 +10,10 @@ export const getProducts = () => dispatch => {
             })
         }
     ).catch(err => {
+        console.log(err)
         return dispatch({
             type: GET_ERRORS,
-            payload: err.response
+            payload: err
         })
     })
 }
@@ -26,9 +27,10 @@ export const getProductDetails = (id) => dispatch => {
             })
         }
     ).catch(err => {
+        console.log(err)
         return dispatch({
             type: GET_ERRORS,
-            payload: err.response
+            payload: err
         })
     })
 }

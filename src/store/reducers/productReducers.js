@@ -1,4 +1,4 @@
-import {GET_PRODUCTS, GET_PRODUCT_DETAILS} from '../actions/types'
+import {GET_PRODUCTS, GET_PRODUCT_DETAILS, GET_ERRORS} from '../actions/types'
 
 const initialState = {
     products: [],
@@ -20,6 +20,11 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 productDetails: action.payload
             }
+        case GET_ERRORS:
+            return{
+                ...state,
+                error: action.payload
+            }    
         default:
             return state    
 
