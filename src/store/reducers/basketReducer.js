@@ -32,14 +32,12 @@ const basketReducer = (state=initialState, action) => {
                 totalPrice: state.totalPrice + (+action.payload.amount * action.payload.price)    
             }   
         case DECREASE_COUNT: 
-            let total = state.basket.every(x => +x.amount === 0) 
             return {
                 ...state,
                 basket: state.basket.map(item => item.productId === action.payload.productId 
                     ? {...item, amount: item.amount === 0 ? item.amount : +item.amount - action.payload.amount}
                     : item),
-                 totalPrice: total ? state.totalPrice 
-                 : state.totalPrice - (+action.payload.amount * action.payload.price) 
+                 totalPrice: state.totalPrice - (+action.payload.amount * action.payload.price) 
                    
             }      
         case DELETE_BASKET:

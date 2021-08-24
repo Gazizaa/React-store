@@ -14,8 +14,8 @@ const BasketRow = (props) => {
     }
 
     const decreaseCount = () => {
-         setInputCount(inputCount > 0 ? inputCount - 1 : null);
-        dispatch(decrease(props.item.productId, 1, props.item.price))
+         setInputCount(inputCount > 1 ? inputCount - 1 : props.deleteItems(props.item.productId, props.item.amount, props.item.price));
+        inputCount > 1 && dispatch(decrease(props.item.productId, 1, props.item.price))
     }
     return (
         <>
