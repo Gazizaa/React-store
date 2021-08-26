@@ -32,17 +32,6 @@
     }
   }
 }
-.quantity-input {
-  outline: none;
-  margin: 10px;
-  all: unset;
-  width: 50px;
-  text-align: center;
-
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
-}
 #cart-btn {
   float: right;
   cursor: pointer;
@@ -81,6 +70,9 @@
     height: 20px;
     border-radius: 15px;
   }
+  span {
+    padding: 15px;
+  }
 }
 @media (max-width: 1000px) {
   .basket-item {
@@ -89,10 +81,10 @@
       margin-left: 0;
       width: 100%;
     }
-    .quantity-input {
-      margin: 0px;
-      width: 35px;
-      /*  width: 50px; */
+  }
+  .td-input {
+    span {
+      padding: 10px;
     }
   }
 }
