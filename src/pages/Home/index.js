@@ -20,7 +20,7 @@ function Home() {
         } 
     }, [products.length, dispatch]);  
 
-    let productsRow = products?.map(item => (
+    let productsRow = products?.slice(0, 12).map(item => (
         <Card product ={item} key={item.id}/>    
     ))
     return(

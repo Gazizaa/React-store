@@ -7,6 +7,7 @@ import ProductDetails from './pages/productDetail'
 import Basket from "./pages/basket";
 import About from './pages/About';
 import Blog from './pages/Blog';
+import AllProducts from './pages/allProducts';
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/basket' component={Basket} />
           <Route exact path='/about' component={About} />
           <Route exact path='/blog' component={Blog} />
+          <Route exact path='/all-products' component={AllProducts} />
       </div>
     </Provider>
    </BrowserRouter> 
